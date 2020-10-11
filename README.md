@@ -41,6 +41,12 @@ Una vez iniciados los contenedores y registrado los hosts, se puede consumir los
 curl http://srvwildfly:8080/helloworld-full/api/parametros
 ```
 
+Para acceder a la definicion openapi puede acceder a:
+
+```bash
+curl http://srvwildfly:8080/openapi
+```
+
 Se debe acceder al servidor keycloak por medio de la siguiente URL
 
 http://srvkeycloak:8080
