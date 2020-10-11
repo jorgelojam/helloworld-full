@@ -35,16 +35,16 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' srv
 
 Con estas direcciones se debe registrar en la maquina fisica en el archivo host para no tener problemas con validaciones de origenes en las cabeceras HTTP
 
-Una vez iniciados los contenedores y registrado los hosts, se puede consumir los servicios publicos como se muestra a continuacion:
-
-```bash
-curl http://srvwildfly:8080/helloworld-full/api/parametros
-```
-
 Para acceder a la definicion openapi puede acceder a:
 
 ```bash
 curl http://srvwildfly:8080/openapi
+```
+
+Una vez iniciados los contenedores y registrado los hosts, se puede consumir los servicios publicos como se muestra a continuacion:
+
+```bash
+curl http://srvwildfly:8080/helloworld-full/api/parametros
 ```
 
 Se debe acceder al servidor keycloak por medio de la siguiente URL
