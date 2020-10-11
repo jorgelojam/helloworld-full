@@ -26,12 +26,6 @@ Para levantar el contenedor de la base de datos y el de aplicaciones, además de
 docker-compose up
 ```
 
-Una vez iniciados los contenedores, se puede consumir los servicios publicos como se muestra a continuacion:
-
-```bash
-curl http://srvwildfly:8080/helloworld-full/api/parametros
-```
-
 Para determinas las direcciones IP de los contenedores se debe consultar de la siguiente manera:
 
 ```bash
@@ -40,6 +34,12 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' srv
 ```
 
 Con estas direcciones se debe registrar en la maquina fisica en el archivo host para no tener problemas con validaciones de origenes en las cabeceras HTTP
+
+Una vez iniciados los contenedores y registrado los hosts, se puede consumir los servicios publicos como se muestra a continuacion:
+
+```bash
+curl http://srvwildfly:8080/helloworld-full/api/parametros
+```
 
 Se debe acceder al servidor keycloak por medio de la siguiente URL
 
