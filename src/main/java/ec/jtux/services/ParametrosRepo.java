@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -74,13 +75,15 @@ public class ParametrosRepo {
                                      @PathParam("codigo") String codigo){
         log.info("Consulta JPA");
         TypedQuery<Parametro> q = em.createQuery("SELECT p FROM Parametro p WHERE p.codigo = :codigo", Parametro.class);
-        Parametro p =q.setParameter("codigo",codigo).getSingleResult();
-        if (p == null)
-            return Response.status(Response.Status.NOT_FOUND)
-                .entity(p)
-                .build();
-        else
+        Parametro p = null;
+        try{
+            p = q.setParameter("codigo",codigo).getSingleResult();
             return Response.ok(p).build();
+        } catch (NoResultException e){
+            return Response.status(Response.Status.NOT_FOUND)
+                .entity("No hay resultados")
+                .build();
+        }
     }
     
 }
