@@ -1,5 +1,5 @@
 insert into parametros(codigo, nombre, tipo, valor)
-values ('timeout', 'Tiempo de inactividad de sesión (minutos)', 'entero', '30');
+values ('timeout', 'Tiempo de inactividad de sesion (minutos)', 'entero', '30');
 insert into parametros(codigo, nombre, tipo, valor)
 values ('smtp_host', 'Host SMTP', 'texto', 'smtp.gmail.com');
 insert into parametros(codigo, nombre, tipo, valor)
@@ -7,7 +7,7 @@ values ('smtp_port', 'Puerto SMTP', 'entero', '465');
 insert into parametros(codigo, nombre, tipo, valor)
 values ('smtp_username', 'Usuario SMTP', 'texto', 'keycloak.test@gmail.com');
 insert into parametros(codigo, nombre, tipo, valor)
-values ('smtp_password', 'Contraseña SMTP', 'texto', 'adminkeycloak');
+values ('smtp_password', 'Contrasena SMTP', 'texto', 'adminkeycloak');
 insert into parametros(codigo, nombre, tipo, valor)
 values ('user_inactivity', 'Tiempo de inactividad usuario (dias)', 'entero', '60');
 INSERT INTO usuarios(username, nombres, apellido, edad, fnacimiento)
