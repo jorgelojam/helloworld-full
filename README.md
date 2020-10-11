@@ -26,6 +26,12 @@ Para levantar el contenedor de la base de datos y el de aplicaciones, además de
 docker-compose up
 ```
 
+Una vez iniciados los contenedores, se puede consumir los servicios publicos como se muestra a continuacion:
+
+```bash
+curl http://srvwildfly:8080/helloworld-full/api/parametros
+```
+
 Para determinas las direcciones IP de los contenedores se debe consultar de la siguiente manera:
 
 ```bash
