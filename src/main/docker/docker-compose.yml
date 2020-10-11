@@ -1,0 +1,63 @@
+version: '3.6'
+
+services:
+  srvdb:
+    image: postgres
+    container_name: srvdb
+    hostname: srvdb
+    environment:
+      POSTGRES_USER: consultas
+      POSTGRES_DB: consultas
+      POSTGRES_PASSWORD: QueryConSql.pwd
+    ports:
+      - 5432:5432
+    networks:
+      - helloworldfull_net
+
+  srvkeycloak:
+    image: jboss/keycloak
+    container_name: srvkeycloak
+    hostname: srvkeycloak
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: DemoAdmin
+      DB_VENDOR: POSTGRES
+      DB_ADDR: srvdb
+      DB_DATABASE: consultas
+      DB_USER: consultas
+      DB_SCHEMA: public
+      DB_PASSWORD: QueryConSql.pwd
+    ports:
+      - 8888:8080
+    command: -Dkeycloak.profile.feature.upload_scripts=enabled -Dkeycloak.profile.feature.account_api=enabled
+    depends_on:
+      - srvdb
+    networks:
+      - helloworldfull_net
+
+  srvwildfly:
+    image: jtux/helloworld-full
+    container_name: srvwildfly
+    hostname: srvwildfly
+    ports:
+      - 8080:8080
+      - 9990:9990
+    depends_on:
+      - srvdb
+    networks:
+      - helloworldfull_net
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: info@jtux.ec
+      PGADMIN_DEFAULT_PASSWORD: clave
+    ports:
+      - 5050:80
+    depends_on:
+      - srvdb
+    networks:
+      - helloworldfull_net
+
+networks:
+  helloworldfull_net:
