@@ -6,7 +6,7 @@ import javax.ws.rs.core.Application;
 
 import org.eclipse.microprofile.auth.LoginConfig;
 
-@ApplicationPath("/rest")
+@ApplicationPath("/api")
 @LoginConfig(authMethod = "MP-JWT", realmName = "helloworldfull")
 @DeclareRoles({"ADMIN", "SUPER", "MONITOR", "USER"})
 public class JAXActivator extends Application {

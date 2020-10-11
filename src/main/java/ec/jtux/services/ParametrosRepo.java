@@ -25,7 +25,7 @@ import org.jboss.logging.Logger;
 import ec.jtux.model.Parametro;
 
 @Path("/parametros")
-@OpenAPIDefinition(info = @Info(title = "Parametros Resource", description = "Servicios para informacion de parametros", version = "1.0"))
+@OpenAPIDefinition(info = @Info(title = "Parametros Resources", description = "Servicios para informacion de parametros", version = "1.0"))
 
 public class ParametrosRepo {
 
@@ -43,7 +43,7 @@ public class ParametrosRepo {
 	@Timed(name = "parametros-time", description = "Tiempo de procesamiento de parametros", unit = MetricUnits.MILLISECONDS, absolute = true)
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Operation(description = "Lista los parametros del sistema", summary = "Listar parametros")
-	@APIResponse(responseCode = "200", description = "Cuenta desbloqueada",
+	@APIResponse(responseCode = "200", description = "Parametros sistema",
 	             content = @Content(mediaType = MediaType.APPLICATION_JSON ,
 	                                schema = @Schema(implementation = Parametro.class)))
     public List<Parametro> listarParametros(){
