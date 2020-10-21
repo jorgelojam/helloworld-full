@@ -25,6 +25,7 @@ public class JDBCProduces {
         return ds.getConnection();
     }
 
+    @SuppressWarnings("unused")
     private void closeConnection(@Disposes Connection conn) throws SQLException {
         conn.close();
     }
