@@ -77,5 +77,5 @@ echo $JWT | base64 -d | python -m json.tool
 Una vez que se tiene el token se puede consumir el servicio utilizando el JWT generado, como se muestra a continuacion:
 
 ```bash
-curl -H "Authorization: Bearer $TOKEN" http://srvwildfly:8080/helloworld-full/rest/param
+curl -H "Authorization: Bearer $TOKEN" http://srvwildfly:8080/helloworld-full/query/30
 ```

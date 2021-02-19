@@ -97,6 +97,7 @@ public class ParametrosRepo {
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Parametro sistema", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Parametro.class))),
             @APIResponse(responseCode = "404", description = "Parametro no existe", content = @Content(mediaType = MediaType.TEXT_PLAIN, schema = @Schema(implementation = String.class))) })
+    @RolesAllowed({ "ADMIN" })
     public Response consultaParametroValor(
             @Parameter(description = "Valor de parametro", required = true) @PathParam("valor") String valor) {
         log.info("Consulta SQL");
